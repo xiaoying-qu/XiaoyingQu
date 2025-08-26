@@ -1,317 +1,675 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Xiaoying — Portfolio</title>
-  <meta name="description" content="Portfolio of Xiaoying — production design, art direction, and visual storytelling." />
-  <meta property="og:title" content="Xiaoying — Portfolio" />
-  <meta property="og:description" content="Production design, art direction, and visual storytelling." />
-  <meta property="og:type" content="website" />
-  <meta property="og:image" content="https://picsum.photos/1200/630" />
-  <meta name="theme-color" content="#111827" />
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
-  <style>
-    :root{
-      --bg:#0b0f17; /* rich near-black */
-      --panel:#111827; /* slate-900 */
-      --muted:#6b7280; /* slate-500 */
-      --text:#e5e7eb;  /* slate-200 */
-      --accent:#38bdf8; /* sky-400 */
-      --accent-2:#f472b6; /* pink-400 */
-      --ring: 0 0 0 3px rgba(56,189,248,.35);
-      --radius: 18px;
-      --shadow: 0 10px 30px rgba(0,0,0,.35);
-    }
-    *{box-sizing:border-box}
-    html,body{height:100%}
-    body{
-      margin:0; font-family:Inter,system-ui,-apple-system,Segoe UI,Roboto,Helvetica,Arial,sans-serif;
-      background:radial-gradient(1200px 600px at 85% -10%, rgba(56,189,248,.08), transparent),
-                 radial-gradient(1000px 500px at -10% 10%, rgba(244,114,182,.08), transparent),
-                 var(--bg);
-      color:var(--text); line-height:1.6;
-    }
-    a{color:inherit; text-decoration:none}
-    img{max-width:100%; display:block}
-    .container{width:min(1100px, 92%); margin-inline:auto}
-
-    /* Nav */
-    header{position:sticky; top:0; z-index:50; backdrop-filter:saturate(140%) blur(8px); background:rgba(11,15,23,.6); border-bottom:1px solid rgba(255,255,255,.06)}
-    .nav{display:flex; align-items:center; justify-content:space-between; padding:.9rem 0}
-    .brand{display:flex; align-items:center; gap:.6rem; font-weight:700; letter-spacing:.4px}
-    .dot{width:.75rem; height:.75rem; border-radius:999px; background:linear-gradient(135deg,var(--accent), var(--accent-2))}
-    .nav a{opacity:.88}
-    .nav a:hover{opacity:1}
-    .nav-links{display:flex; gap:1.2rem; align-items:center}
-    .cta{padding:.55rem .9rem; background:linear-gradient(135deg,var(--accent),var(--accent-2)); color:#0b0f17; font-weight:700; border-radius:999px; box-shadow:var(--shadow)}
-
-    /* Hero */
-    .hero{padding:6rem 0 3rem}
-    .split{display:grid; grid-template-columns:1.1fr .9fr; gap:2rem; align-items:center}
-    .kicker{color:var(--muted); font-size:.9rem; letter-spacing:.24em; text-transform:uppercase}
-    h1{font-size:clamp(2.1rem, 3.6vw + 1rem, 4rem); line-height:1.1; margin:.6rem 0 1rem}
-    .sub{color:#cbd5e1; font-size:1.05rem}
-    .hero-card{border:1px solid rgba(255,255,255,.08); background:linear-gradient(180deg, rgba(255,255,255,.04), rgba(255,255,255,.02)); border-radius:var(--radius); overflow:hidden; box-shadow:var(--shadow)}
-    .hero-card img{aspect-ratio:16/10; object-fit:cover}
-
-    /* Buttons */
-    .btn-row{display:flex; gap:.8rem; margin-top:1.2rem}
-    .btn{display:inline-flex; align-items:center; gap:.5rem; padding:.7rem 1rem; border-radius:12px; border:1px solid rgba(255,255,255,.12); background:#0f172a; color:#e5e7eb}
-    .btn:hover{box-shadow:var(--shadow); transform:translateY(-1px)}
-
-    /* Section */
-    section{padding:3.5rem 0}
-    .section-head{display:flex; align-items:end; justify-content:space-between; gap:1rem; margin-bottom:1.4rem}
-    .section-head h2{margin:0; font-size:clamp(1.4rem, 1.2rem + 1.2vw, 2rem)}
-    .section-head p{color:var(--muted); max-width:60ch}
-
-    /* Grid Gallery */
-    .grid{display:grid; grid-template-columns:repeat(12,1fr); gap:1rem}
-    .card{grid-column:span 4; background:linear-gradient(180deg, rgba(255,255,255,.04), rgba(255,255,255,.02)); border:1px solid rgba(255,255,255,.08); border-radius:16px; overflow:hidden; transition:transform .2s ease, box-shadow .2s ease}
-    .card:hover{transform:translateY(-3px); box-shadow:var(--shadow)}
-    .card img{aspect-ratio:4/3; object-fit:cover}
-    .card .meta{padding:.9rem}
-    .tag{display:inline-block; font-size:.75rem; color:#94a3b8; border:1px solid rgba(255,255,255,.14); padding:.18rem .5rem; border-radius:999px; margin-right:.4rem}
-
-    /* About */
-    .about{display:grid; grid-template-columns:1fr 1fr; gap:2rem}
-    .about .panel{background:linear-gradient(180deg, rgba(255,255,255,.04), rgba(255,255,255,.02)); border:1px solid rgba(255,255,255,.08); border-radius:16px; padding:1.2rem}
-
-    /* Contact */
-    form{display:grid; gap:.8rem; max-width:720px}
-    label{font-size:.9rem; color:#cbd5e1}
-    input, textarea{width:100%; padding:.9rem 1rem; border-radius:12px; border:1px solid rgba(255,255,255,.14); background:#0f172a; color:#e5e7eb}
-    input:focus, textarea:focus{outline:none; box-shadow:var(--ring); border-color:transparent}
-    textarea{min-height:140px; resize:vertical}
-
-    /* Footer */
-    footer{padding:2.2rem 0; border-top:1px solid rgba(255,255,255,.08); color:#9ca3af}
-
-    /* Responsive */
-    @media (max-width: 980px){
-      .split{grid-template-columns:1fr;}
-      .about{grid-template-columns:1fr}
-      .card{grid-column:span 6}
-    }
-    @media (max-width: 640px){
-      .nav-links{display:none}
-      .card{grid-column:span 12}
-    }
-  </style>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Your Name | Portfolio</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        /* Reset and Base Styles */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Inter', 'Helvetica Neue', sans-serif;
+        }
+        
+        :root {
+            --primary: #1a1a1a;
+            --accent: #a9cbee;
+            --light: #eae4e4;
+            --dark: #121212;
+            --text: #333333;
+            --text-light: #777777;
+        }
+        
+        html {
+            scroll-behavior: smooth;
+        }
+        
+        body {
+            background-color: var(--light);
+            color: var(--text);
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+        
+        a {
+            text-decoration: none;
+            color: inherit;
+            transition: color 0.3s ease;
+        }
+        
+        /* Layout Components */
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+        
+        /* Header & Navigation - Overlay style */
+        header {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            padding: 25px 0;
+            background: linear-gradient(to bottom, rgba(0,0,0,0.8) 0%, rgba(0,0,0,0) 100%);
+            z-index: 1000;
+            transition: all 0.3s ease;
+        }
+        
+        header.scrolled {
+            padding: 15px 0;
+            background: rgba(245, 245, 245, 0.95);
+            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.05);
+        }
+        
+        header.scrolled .logo,
+        header.scrolled nav a {
+            color: var(--primary);
+        }
+        
+        .header-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        
+        .logo {
+            font-size: 28px;
+            font-weight: 700;
+            color: white;
+        }
+        
+        .logo span {
+            color: var(--accent);
+        }
+        
+        nav ul {
+            display: flex;
+            list-style: none;
+            gap: 30px;
+        }
+        
+        nav a {
+            font-weight: 500;
+            position: relative;
+            color: white;
+        }
+        
+        nav a:after {
+            content: '';
+            position: absolute;
+            bottom: -5px;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background-color: var(--accent);
+            transition: width 0.3s ease;
+        }
+        
+        nav a:hover:after {
+            width: 100%;
+        }
+        
+        .nav-toggle {
+            display: none;
+            background: none;
+            border: none;
+            font-size: 24px;
+            cursor: pointer;
+            color: white;
+        }
+        
+        header.scrolled .nav-toggle {
+            color: var(--primary);
+        }
+        
+        /* Portfolio Section - First thing visible */
+        .portfolio {
+            padding-top: 0;
+        }
+        
+        .portfolio-item {
+            height: 100vh;
+            display: flex;
+            align-items: center;
+            position: relative;
+            overflow: hidden;
+            cursor: pointer; /* make the whole section clickable */
+        }
+        .portfolio-item-link{
+          display: block;
+          width: 100%;
+          height: 100%;
+          position: absolute;
+          top: 0;
+          left: 0;
+          z-index: 5;
+        }
+        
+        .portfolio-item:first-child {
+            padding-top: 0;
+        }
+        
+        .portfolio-content {
+            width: 100%;
+            display: flex;
+            flex-direction: column;
+            gap: 30px;
+        }
+        
+        .portfolio-image {
+            position: relative;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.15);
+            width: 100%;
+            max-width: 100%;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+        
+        .portfolio-image img {
+            width: 100%;
+            height: auto;
+            object-fit: cover;
+            transition: transform 0.5s ease;
+        }
+        
+        .portfolio-item:hover .portfolio-image img {
+            transform: scale(1.03);
+        }
+        
+        .portfolio-info {
+            padding: 0 40px;
+            max-width: 1000px;
+            margin: 0 auto;
+            color: white;
+            text-shadow: 0 2px 4px rgba(0,0,0,0.5);
+        }
+        
+        .portfolio-category {
+            color: var(--accent);
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            margin-bottom: 15px;
+            display: block;
+        }
+        
+        .portfolio-title {
+            font-size: 3.5rem;
+            margin-bottom: 20px;
+            line-height: 1.2;
+        }
+        
+        .portfolio-desc {
+            margin-bottom: 30px;
+            font-size: 1.2rem;
+            line-height: 1.7;
+            max-width: 600px;
+        }
+        
+        .portfolio-tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+            margin-bottom: 30px;
+        }
+        
+        .portfolio-tag {
+            padding: 5px 15px;
+            background-color: rgba(106, 56, 192, 0.3);
+            color: white;
+            border-radius: 20px;
+            font-size: 0.9rem;
+            backdrop-filter: blur(10px);
+        }
+        
+        .portfolio-link {
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            color: white;
+            font-weight: 600;
+            background-color: var(--accent);
+            padding: 12px 30px;
+            border-radius: 30px;
+        }
+        
+        .portfolio-link i {
+            transition: transform 0.3s ease;
+        }
+        
+        .portfolio-link:hover i {
+            transform: translateX(5px);
+        }
+        
+        /* Background overlay for text readability */
+        .portfolio-item:first-child::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(to bottom, rgba(0,0,0,0.4) 0%, rgba(0,0,0,0.2) 100%);
+            z-index: -1;
+        }
+        
+        /* About Section */
+        .about {
+            padding: 80px 0;
+            position: relative;
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+        }
+        
+        .about::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: url('images/profile_background.png') center/cover no-repeat;
+            opacity: 0.4;
+            z-index: -1;
+        }
+        
+        .about-content {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 60px;
+            align-items: center;
+        }
+        
+        .profile-section {
+            position: relative;
+        }
+        
+        .main-profile-img {
+            width: 100%;
+            max-width: 500px;
+            height: 500px;
+            object-fit: cover;
+            border-radius: 50%;
+            box-shadow: 0 20px 40px rgba(2, 1, 1, 0.4);
+        }
+    
+        
+        .about-text {
+            padding-right: 40px;
+        }
+        
+        .name-title {
+            font-size: 1.8rem;
+            font-weight: 300;
+            letter-spacing: 3px;
+            text-transform: uppercase;
+            margin-bottom: 20px;
+            color: #6a38c0;
+        }
+        
+        .intro-text {
+            font-size: 1.2rem;
+            line-height: 1.8;
+            margin-bottom: 30px;
+            font-weight: 300;
+        }
+        
+        .intro-text span {
+            font-style: italic;
+            color: #6a38c0;
+        }
+        
+        .awards-section {
+            margin: 40px 0;
+        }
+        
+        .section-heading {
+            font-size: 1.5rem;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            margin-bottom: 25px;
+            position: relative;
+            padding-bottom: 10px;
+        }
+        
+        .section-heading::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 60px;
+            height: 2px;
+            background-color: #6a38c0;
+        }
+        
+        .awards-list {
+            list-style: none;
+        }
+        
+        .awards-list li {
+            margin-bottom: 15px;
+            padding-left: 20px;
+            position: relative;
+            font-size: 1.1rem;
+        }
+        
+        .awards-list li::before {
+            content: '•';
+            color: #6a38c0;
+            font-size: 1.5rem;
+            position: absolute;
+            left: 0;
+            top: -5px;
+        }
+        
+        .personal-stats {
+            margin-top: 50px;
+            font-style: italic;
+            opacity: 0.8;
+            line-height: 1.8;
+        }
+       
+        /* Contact Section */
+        .contact {
+            padding: 100px 0;
+            background-color: var(--light);
+            text-align: center;
+        }
+        
+        .contact-content {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 50px;
+        }
+        
+        .contact-info {
+            display: flex;
+            flex-direction: column;
+            gap: 25px;
+        }
+        
+        .contact-item {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
+        
+        .contact-icon {
+            width: 50px;
+            height: 50px;
+            background-color: white;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--accent);
+            font-size: 20px;
+        }
+        
+        /* Footer */
+        footer {
+            background-color: var(--dark);
+            color: white;
+            padding: 70px 0 30px;
+        }
+        
+        .footer-content {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 40px;
+            margin-bottom: 50px;
+        }
+        
+        .footer-logo {
+            font-size: 28px;
+            font-weight: 700;
+            margin-bottom: 20px;
+        }
+        
+        .footer-logo span {
+            color: var(--accent);
+        }
+        
+        .footer-links h3 {
+            margin-bottom: 20px;
+            font-size: 1.2rem;
+        }
+        
+        .footer-links ul {
+            list-style: none;
+        }
+        
+        .footer-links li {
+            margin-bottom: 10px;
+        }
+        
+        .footer-links a:hover {
+            color: var(--accent);
+        }
+        
+        .social-links {
+            display: flex;
+            gap: 15px;
+            margin-top: 20px;
+        }
+        
+        .social-link {
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            background-color: rgba(255, 255, 255, 0.1);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: background-color 0.3s ease;
+        }
+        
+        .social-link:hover {
+            background-color: var(--accent);
+        }
+        
+        .copyright {
+            text-align: center;
+            padding-top: 30px;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            color: #aaa;
+            font-size: 0.9rem;
+        }
+        
+        /* Responsive Design */
+        @media (max-width: 992px) {
+            .about-content {
+                grid-template-columns: 1fr;
+                gap: 40px;
+            }
+            
+            .profile-section {
+                text-align: center;
+            }
+            
+            .about-text {
+                padding-right: 0;
+            }
+        }
+        
+        @media (max-width: 576px) {
+            .name-title {
+                font-size: 1.5rem;
+            }
+            
+            .main-profile-img {
+                height: 300px;
+            }
+        
+        }
+    </style>
 </head>
 <body>
-  <header>
-    <div class="container nav">
-      <a href="#top" class="brand" aria-label="Home">
-        <span class="dot"></span>
-        <span>Xiaoying</span>
-      </a>
-      <nav class="nav-links" aria-label="primary">
-        <a href="#work">Work</a>
-        <a href="#about">About</a>
-        <a href="#contact" class="cta">Contact</a>
-      </nav>
-    </div>
-  </header>
-
-  <main id="top" class="container">
-    <!-- HERO -->
-    <section class="hero" aria-labelledby="hero-title">
-      <div class="split">
-        <div>
-          <p class="kicker">Production Designer · Los Angeles</p>
-          <h1 id="hero-title">Crafting worlds for screen — from intimate sets to bold visual statements.</h1>
-          <p class="sub">I’m Xiaoying, a production designer and art director focused on narrative shorts, music videos, and branded content. I turn concepts into tactile spaces that move stories forward.</p>
-          <div class="btn-row">
-            <a class="btn" href="#work" aria-label="View my selected works">View Work →</a>
-            <a class="btn" href="#contact" aria-label="Get in touch">Get in Touch</a>
-          </div>
+    <!-- Header with transparent background -->
+    <header id="header">
+        <div class="container header-content">
+            <a href="#" class="logo">Xiaoying<span>Qu</span></a>
+            <button class="nav-toggle" id="navToggle">
+                <i class="fas fa-bars"></i>
+            </button>
+            <nav>
+                <ul id="navMenu">
+                    <li><a href="#portfolio">Work</a></li>
+                    <li><a href="#about">About</a></li>
+                    <li><a href="#contact">Contact</a></li>
+                </ul>
+            </nav>
         </div>
-        <figure class="hero-card">
-          <img src="https://picsum.photos/1200/700?random=12" alt="Selected production design stills collage" loading="lazy" />
-        </figure>
-      </div>
+    </header>
+
+    <!-- Portfolio Section -->
+    <section class="portfolio" id="portfolio">
+        <!-- Portfolio Item 1 - Opens in new tab -->
+        <div class="portfolio-item" style="background: url('images/Capsule/still_1.png') center/cover no-repeat;">
+            <a href="projects/capsule.html" class="portfolio-item-link"
+            target="_blank"></a>
+        
+        </div>
+        
+        <!-- Portfolio Item 2 -->
+        <div class="portfolio-item" style="background: url('images/Every_breath_you_take/cover.png') center/cover no-repeat;">
+            <a href="every-breath-you-take.html" class="portfolio-item-link"
+            target="_blank"></a>
+        </div>
     </section>
 
-    <!-- WORK -->
-    <section id="work" aria-labelledby="work-title">
-      <div class="section-head">
-        <h2 id="work-title">Selected Work</h2>
-        <p>Highlights across shorts, music videos, and commercial spots. More available upon request.</p>
-      </div>
-      <div class="grid">
-        <!-- Card 1 -->
-        <article class="card">
-          <img src="https://picsum.photos/900/675?random=1" alt="Project still #1" loading="lazy" />
-          <div class="meta">
-            <div>
-              <span class="tag">Short Film</span>
-              <span class="tag">Set Build</span>
+    <!-- About Section -->
+     <section class="about" id="about">
+        <div class="container">
+            <div class="about-content">
+                <div class="about-text">
+                    <h2 class="name-title">Xiaoying Qu</h2>
+                    
+                        <p class="intro-text">
+                            Xiaoying Qu is a Director and Cinematographer whose journey began in the Indonesian jungle—where WiFi was fast enough to download an episode of <span>The Twilight Zone</span> in under 25 hours. With a grandfather who overthrew governments and a mother who was kidnapped along the way, Bamba was tired to tell stories that turn a simple plan into a limited journey.
+                        </p>
+                    
+                        <p class="intro-text">
+                            With a passion for film that began at 9, life knew moving to Los Angeles was inevitable. There, he studied at ArtCenter College of Design. Today, Bamba splits his time between directing and cinematography, sometimes both depending on the day, chasing the kind of stories that would make his younger self sit up, eyes wide, and whisper, <span>no worry.</span>
+                        </p>
+                </div>    
+                    
+                <div class="profile-section">
+                    <img src="images/profile_img.jpeg" alt="Xiaoying Qu" class="main-profile-img">
+                    <div class="awards-section">
+                        <h3 class="section-heading">Recent Awards (2024/2025):</h3>
+                    <ul class="awards-list">
+                            <li>ASC George Spiro Dibie Heritage Award</li>
+                            <li>The One Show - Best Film Portfolio</li>
+                            
+                    </ul>
+                </div>
             </div>
-            <h3 style="margin:.4rem 0 .2rem; font-size:1.1rem">Neon Reverie</h3>
-            <p style="margin:0; color:#cbd5e1">Designed a modular 6×6ft platform and ambient neon environment on a micro budget.</p>
-          </div>
-        </article>
-        <!-- Card 2 -->
-        <article class="card">
-          <img src="https://picsum.photos/900/675?random=2" alt="Project still #2" loading="lazy" />
-          <div class="meta">
-            <div>
-              <span class="tag">Music Video</span>
-              <span class="tag">Art Direction</span>
+                </div>
+                
+        </div>                
+     </section>          
+       
+
+    <!-- Contact & Footer -->
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-about">
+                    <div class="footer-logo">Xiaoying Qu</div>
+                    <p>Creating digital experiences that blend design and technology.</p>
+                    <div class="social-links">
+                        <a href="#" class="social-link"><i class="fab fa-dribbble"></i></a>
+                        <a href="#" class="social-link"><i class="fab fa-behance"></i></a>
+                        <a href="#" class="social-link"><i class="fab fa-github"></i></a>
+                        <a href="#" class="social-link"><i class="fab fa-linkedin-in"></i></a>
+                    </div>
+                </div>
+                <div class="footer-links">
+                    <h3>Contact Me</h3>
+                    <p>Get in touch to discuss your project or just say hello.</p>
+                    <div class="contact-content">
+                        <div class="contact-info">
+                            <div class="contact-item">
+                                <div class="contact-icon">
+                                    <i class="fas fa-map-marker-alt"></i>
+                                </div>
+                                <div>
+                                    <h3>Location</h3>
+                                    <p>Based in Los Angeles, CA</p>
+                                </div>
+                            </div>
+                            <div class="contact-item">
+                                <div class="contact-icon">
+                                    <i class="fas fa-phone"></i>
+                                </div>
+                                <div>
+                                    <h3>Phone</h3>
+                                    <p>+1 (555) 123-4567</p>
+                                </div>
+                            </div>
+                            <div class="contact-item">
+                                <div class="contact-icon">
+                                    <i class="fas fa-envelope"></i>
+                                </div>
+                                <div>
+                                    <h3>Email</h3>
+                                    <p>hello@yourname.com</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
             </div>
-            <h3 style="margin:.4rem 0 .2rem; font-size:1.1rem">Chromatic Bloom</h3>
-            <p style="margin:0; color:#cbd5e1">Sourced and dressed a 20×20ft floor treatment to evoke a surreal gallery space.</p>
-          </div>
-        </article>
-        <!-- Card 3 -->
-        <article class="card">
-          <img src="https://picsum.photos/900/675?random=3" alt="Project still #3" loading="lazy" />
-          <div class="meta">
-            <div>
-              <span class="tag">Commercial</span>
-              <span class="tag">Prop Design</span>
+            <div class="copyright">
+                <p>&copy; 2025 Xiaoying Qu. All rights reserved.</p>
             </div>
-            <h3 style="margin:.4rem 0 .2rem; font-size:1.1rem">Signal</h3>
-            <p style="margin:0; color:#cbd5e1">Built a hero plinth and circular pedestal for macro product shots.</p>
-          </div>
-        </article>
-        <!-- Card 4 -->
-        <article class="card">
-          <img src="https://picsum.photos/900/675?random=4" alt="Project still #4" loading="lazy" />
-          <div class="meta">
-            <div>
-              <span class="tag">Short Film</span>
-              <span class="tag">Color Story</span>
-            </div>
-            <h3 style="margin:.4rem 0 .2rem; font-size:1.1rem">Paper Lanterns</h3>
-            <p style="margin:0; color:#cbd5e1">Devised a warm-vs-cool palette to guide character arcs through space.</p>
-          </div>
-        </article>
-        <!-- Card 5 -->
-        <article class="card">
-          <img src="https://picsum.photos/900/675?random=5" alt="Project still #5" loading="lazy" />
-          <div class="meta">
-            <div>
-              <span class="tag">Music Video</span>
-              <span class="tag">Set Dress</span>
-            </div>
-            <h3 style="margin:.4rem 0 .2rem; font-size:1.1rem">Glass Tide</h3>
-            <p style="margin:0; color:#cbd5e1">Transformed an empty warehouse into a reflective dreamscape.</p>
-          </div>
-        </article>
-        <!-- Card 6 -->
-        <article class="card">
-          <img src="https://picsum.photos/900/675?random=6" alt="Project still #6" loading="lazy" />
-          <div class="meta">
-            <div>
-              <span class="tag">Commercial</span>
-              <span class="tag">Fabrication</span>
-            </div>
-            <h3 style="margin:.4rem 0 .2rem; font-size:1.1rem">Axis</h3>
-            <p style="margin:0; color:#cbd5e1">Custom plinth system with interchangeable tops for product angles.</p>
-          </div>
-        </article>
-      </div>
-    </section>
-
-    <!-- ABOUT -->
-    <section id="about" aria-labelledby="about-title">
-      <div class="section-head">
-        <h2 id="about-title">About</h2>
-        <p>Rooted in tactile materials and story-first thinking. Available in Los Angeles and beyond.</p>
-      </div>
-      <div class="about">
-        <div class="panel">
-          <h3 style="margin-top:0">Bio</h3>
-          <p>Hi, I’m Xiaoying — a production designer and art director. I collaborate with directors and producers to build sets that feel lived-in and cinematic, whether that means a minimalist pedestal world or a fully dressed location.</p>
-          <p>Selected clients/collabs: Indie filmmakers, music artists, boutique brands.</p>
         </div>
-        <div class="panel">
-          <h3 style="margin-top:0">Services</h3>
-          <ul>
-            <li>Production Design & Art Direction</li>
-            <li>Set Builds: platforms, plinths, scenic treatments</li>
-            <li>Props & Dressing</li>
-            <li>Color, texture & reference decks</li>
-          </ul>
-          <h3>Press & Notes</h3>
-          <ul>
-            <li>2024 — Shortlisted, Emerging Designer Showcase</li>
-            <li>2023 — Audience Award, Micro-Short Fest</li>
-          </ul>
-        </div>
-      </div>
-    </section>
+    </footer>
 
-    <!-- CONTACT -->
-    <section id="contact" aria-labelledby="contact-title">
-      <div class="section-head">
-        <h2 id="contact-title">Contact</h2>
-        <p>For projects, collaborations, or inquiries — drop a line.</p>
-      </div>
-      <!-- Netlify-ready form: when deployed on Netlify, this will collect submissions automatically. -->
-      <form name="contact" method="POST" data-netlify="true">
-        <input type="hidden" name="form-name" value="contact" />
-        <div>
-          <label for="name">Name</label>
-          <input id="name" name="name" placeholder="Your name" required />
-        </div>
-        <div>
-          <label for="email">Email</label>
-          <input id="email" name="email" type="email" placeholder="you@email.com" required />
-        </div>
-        <div>
-          <label for="message">Message</label>
-          <textarea id="message" name="message" placeholder="Tell me about your project…" required></textarea>
-        </div>
-        <div class="btn-row">
-          <button class="btn" type="submit">Send Message</button>
-          <a class="btn" href="mailto:hello@yourdomain.com">Email Directly</a>
-        </div>
-      </form>
-    </section>
-  </main>
 
-  <footer>
-    <div class="container" style="display:flex; align-items:center; justify-content:space-between; gap:1rem; flex-wrap:wrap">
-      <small>© <span id="year"></span> Xiaoying. All rights reserved.</small>
-      <small>Built with HTML/CSS • Deployed on Netlify</small>
-    </div>
-  </footer>
-
-  <script>
-    // Smooth scroll for same-page links
-    document.querySelectorAll('a[href^="#"]').forEach(a=>{
-      a.addEventListener('click', e=>{
-        const id = a.getAttribute('href').slice(1);
-        const el = document.getElementById(id);
-        if(el){ e.preventDefault(); el.scrollIntoView({behavior:'smooth'}); }
-      });
-    });
-    // Current year in footer
-    document.getElementById('year').textContent = new Date().getFullYear();
-  </script>
-
-  <!--
-  ======================================
-  QUICK START (Deploy on Netlify)
-  ======================================
-  1) Replace placeholder text & images (search for picsum.photos URLs).
-  2) Save this file as index.html in a folder.
-  3) Create a Netlify account → Add new site → Deploy manually → Drag & drop the folder.
-  4) In Site settings → Domain management → Add custom domain (yourdomain.com).
-  5) Follow Netlify’s DNS instructions at your domain registrar. Enable HTTPS.
-  6) Form submissions: Netlify will auto-detect the <form> (data-netlify="true").
-
-  OPTIONAL
-  - Add a /assets/ folder and move images there.
-  - Create additional pages by duplicating this file and adjusting <a> links.
-  - Hook up Google Analytics or Plausible by pasting their script in <head>.
-  - Improve accessibility by adding more detailed alt text for your images.
-  -->
+    <script>
+        // Sticky Header with transparency
+        window.addEventListener('scroll', function() {
+            const header = document.getElementById('header');
+            if (window.scrollY > 100) {
+                header.classList.add('scrolled');
+            header.style.background = "rgba(245, 245, 245, 0.95)";
+            document.querySelectorAll('nav a, .logo').forEach(el => {
+                el.style.color = "#1a1a1a";
+            });
+                document.querySelector('.nav-toggle').style.color = "#1a1a1a";
+            } else {
+                header.classList.remove('scrolled');
+                header.style.background = "linear-gradient(to bottom, rgba(0,0,0,0.8) 0%, rgba(0,0,0,0) 100%)";
+                document.querySelectorAll('nav a, .logo').forEach(el => {
+                    el.style.color = "white";
+                });
+                document.querySelector('.nav-toggle').style.color = "white";
+            }
+        });
+        
+        // Mobile Navigation Toggle
+        const navToggle = document.getElementById('navToggle');
+        const navMenu = document.getElementById('navMenu');
+        
+        navToggle.addEventListener('click', function() {
+            navMenu.classList.toggle('active');
+        });
+        
+        // Close mobile menu when clicking on a link
+        const navLinks = document.querySelectorAll('nav a');
+        navLinks.forEach(link => {
+            link.addEventListener('click', () => {
+                navMenu.classList.remove('active');
+            });
+        });
+    </script>
 </body>
 </html>

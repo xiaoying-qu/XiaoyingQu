@@ -1,0 +1,277 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Shazam | Directed by Regina G. Wilson</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Inter', 'Helvetica Neue', sans-serif;
+        }
+        
+        body {
+            background-color: #0a0a0a;
+            color: #ffffff;
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+        
+        .container {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+        
+        /* Header */
+        header {
+            padding: 30px 0;
+            text-align: center;
+            position: relative;
+            z-index: 10;
+        }
+        
+        .project-title {
+            font-size: 3.5rem;
+            font-weight: 300;
+            letter-spacing: 8px;
+            text-transform: uppercase;
+            margin-bottom: 10px;
+        }
+        
+        .director {
+            font-size: 1.2rem;
+            font-weight: 300;
+            letter-spacing: 2px;
+            opacity: 0.8;
+            margin-bottom: 40px;
+        }
+        
+        /* Video Section */
+        .video-section {
+            margin: 40px 0 80px;
+        }
+        
+        .video-container {
+            position: relative;
+            padding-bottom: 56.25%; /* 16:9 aspect ratio */
+            height: 0;
+            overflow: hidden;
+            border-radius: 8px;
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
+        }
+        
+        .video-container iframe {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            border: none;
+        }
+        
+        /* Photo Gallery */
+        .gallery-section {
+            margin: 80px 0;
+        }
+        
+        .gallery-title {
+            font-size: 1.8rem;
+            font-weight: 400;
+            text-transform: uppercase;
+            letter-spacing: 3px;
+            margin-bottom: 40px;
+            text-align: center;
+            position: relative;
+            padding-bottom: 15px;
+        }
+        
+        .gallery-title::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 60px;
+            height: 2px;
+            background-color: #ffffff;
+        }
+        
+        .photo-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 25px;
+        }
+        
+        .photo-item {
+            border-radius: 8px;
+            overflow: hidden;
+            position: relative;
+            cursor: pointer;
+            aspect-ratio: 4/5;
+        }
+        
+        .photo-item img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.5s ease;
+        }
+        
+        .photo-item:hover img {
+            transform: scale(1.05);
+        }
+        
+        .photo-caption {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            padding: 20px;
+            background: linear-gradient(to top, rgba(0,0,0,0.8) 0%, rgba(0,0,0,0) 100%);
+            opacity: 0;
+            transition: opacity 0.3s ease;
+        }
+        
+        .photo-item:hover .photo-caption {
+            opacity: 1;
+        }
+        
+        /* Footer */
+        footer {
+            text-align: center;
+            padding: 60px 0 40px;
+            opacity: 0.7;
+            font-size: 0.9rem;
+        }
+        
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .project-title {
+                font-size: 2.5rem;
+                letter-spacing: 4px;
+            }
+            
+            .director {
+                font-size: 1rem;
+            }
+            
+            .photo-grid {
+                grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+                gap: 15px;
+            }
+        }
+        
+        @media (max-width: 480px) {
+            .project-title {
+                font-size: 2rem;
+            }
+            
+            .photo-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header with Project Title -->
+    <header>
+        <div class="container">
+            <h1 class="project-title">CAPSULE</h1>
+            <p class="director">DIRECTED BY XIAOYING QU</p>
+        </div>
+    </header>
+
+    <!-- Video Section -->
+    <section class="video-section">
+        <div class="container">
+            <div class="video-container">
+                <!-- Replace with your actual Vimeo embed code -->
+                <div style="padding:56.25% 0 0 0;position:relative;"><iframe src="https://player.vimeo.com/video/1074781974?badge=0&amp;autopause=0&amp;player_id=0&amp;app_id=58479" frameborder="0" allow="autoplay; fullscreen; picture-in-picture; clipboard-write; encrypted-media; web-share" referrerpolicy="strict-origin-when-cross-origin" style="position:absolute;top:0;left:0;width:100%;height:100%;" title="Capsule_20min_cut"></iframe></div><script src="https://player.vimeo.com/api/player.js"></script>
+                
+            </div>
+        </div>
+    </section>
+
+    <!-- Photo Gallery Section -->
+    <section class="gallery-section">
+        <div class="container">
+            <div class="photo-grid">
+                <!-- Photo 1 -->
+                <div class="photo-item">
+                    <img src="../images/Capsule/still_1.png" alt="Production Still 1">
+        
+                </div>
+                
+                <!-- Photo 2 -->
+                <div class="photo-item">
+                    <img src="https://images.unsplash.com/photo-1542204165-65bf26472b9b?ixlib=rb-4.0.3&auto=format&fit=crop&w=1000&q=80" alt="Production Still 2">
+                    <div class="photo-caption">
+                        <p>Main character in costume</p>
+                    </div>
+                </div>
+                
+                <!-- Photo 3 -->
+                <div class="photo-item">
+                    <img src="https://images.unsplash.com/photo-1540747913346-19e32dc3e97e?ixlib=rb-4.0.3&auto=format&fit=crop&w=1000&q=80" alt="Production Still 3">
+                    <div class="photo-caption">
+                        <p>Director working with actors</p>
+                    </div>
+                </div>
+                
+                <!-- Photo 4 -->
+                <div class="photo-item">
+                    <img src="https://images.unsplash.com/photo-1574267432553-4b4628081c31?ixlib=rb-4.0.3&auto=format&fit=crop&w=1000&q=80" alt="Production Still 4">
+                    <div class="photo-caption">
+                        <p>Behind the scenes footage</p>
+                    </div>
+                </div>
+                
+                <!-- Photo 5 -->
+                <div class="photo-item">
+                    <img src="https://images.unsplash.com/photo-1543536448-d209d2d2a3b0?ixlib=rb-4.0.3&auto=format&fit=crop&w=1000&q=80" alt="Production Still 5">
+                    <div class="photo-caption">
+                        <p>Lighting setup for night scene</p>
+                    </div>
+                </div>
+                
+                <!-- Photo 6 -->
+                <div class="photo-item">
+                    <img src="https://images.unsplash.com/photo-1519638835158-845748fcea70?ixlib=rb-4.0.3&auto=format&fit=crop&w=1000&q=80" alt="Production Still 6">
+                    <div class="photo-caption">
+                        <p>Final scene cinematography</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <p>&copy; 2023 REGINA G. WILSON. ALL RIGHTS RESERVED.</p>
+        </div>
+    </footer>
+
+    <script>
+        // Simple script to handle image loading
+        document.addEventListener('DOMContentLoaded', function() {
+            const images = document.querySelectorAll('img');
+            
+            images.forEach(img => {
+                // Add loading animation for images
+                img.addEventListener('load', function() {
+                    this.style.opacity = 1;
+                });
+                
+                // Set initial opacity for fade-in effect
+                img.style.opacity = 0;
+                img.style.transition = 'opacity 0.5s ease';
+            });
+        });
+    </script>
+</body>
+</html>
