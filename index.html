@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Your Name | Portfolio</title>
+    <title>Xiaoying Qu | Portfolio</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <style>
         /* Reset and Base Styles */
@@ -11,12 +11,12 @@
             margin: 0;
             padding: 0;
             box-sizing: border-box;
-            font-family: 'Inter', 'Helvetica Neue', sans-serif;
+            font-family: 'Roboto', 'Helvetica Neue', sans-serif;
         }
         
         :root {
             --primary: #1a1a1a;
-            --accent: #a9cbee;
+            --accent: #ffffff;
             --light: #eae4e4;
             --dark: #121212;
             --text: #333333;
@@ -79,6 +79,7 @@
             font-size: 28px;
             font-weight: 700;
             color: white;
+            font-style: fantasy;
         }
         
         .logo span {
@@ -111,7 +112,55 @@
         nav a:hover:after {
             width: 100%;
         }
+        /* Dropdown Menu */
+        .dropdown {
+            position: relative;
+        }
+
+        .dropdown-content{
+            position: absolute;
+            top: 100%;
+            left: 0;
+            background: white;
+            min-width: 200px;
+            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1);
+            border-radius: 6px;
+            opacity: 0;
+            visibility: hidden;
+            transform: translateY(10px);
+            transition: all 0.3s ease;
+            z-index: 1000;
+            padding: 10px 0;
+        }
+
+        .dropdown:hover .dropdown-content{
+            opacity: 1;
+            visibility: visible;
+            transform: translateY(0);
+        }
         
+        .dropdown-content a {
+            display: block;
+            padding: 10px 20px;
+            color: var(--text);
+            text-decoration: none;
+            transition: all 0.2s ease;
+        }
+        
+        .dropdown-content a:hover {
+            background: rgba(106, 56, 192, 0.1);
+            color: var(--accent);
+        }
+        
+        .dropdown-toggle::after {
+            content: '\f107';
+            font-family: 'Font Awesome 5 Free';
+            font-weight: 900;
+            margin-left: 5px;
+            font-size: 0.9em;
+        }
+
+        /* Mobile Navigation Toggle */
         .nav-toggle {
             display: none;
             background: none;
@@ -198,34 +247,18 @@
             display: block;
         }
         
-        .portfolio-title {
-            font-size: 3.5rem;
-            margin-bottom: 20px;
-            line-height: 1.2;
+        #directing {
+            background-color: #f9f9f9;
         }
         
-        .portfolio-desc {
-            margin-bottom: 30px;
-            font-size: 1.2rem;
-            line-height: 1.7;
-            max-width: 600px;
+        #cinematography {
+            background-color: #f0f0f0;
         }
         
-        .portfolio-tags {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 10px;
-            margin-bottom: 30px;
+        #commercials {
+            background-color: #e9e9e9;
         }
         
-        .portfolio-tag {
-            padding: 5px 15px;
-            background-color: rgba(106, 56, 192, 0.3);
-            color: white;
-            border-radius: 20px;
-            font-size: 0.9rem;
-            backdrop-filter: blur(10px);
-        }
         
         .portfolio-link {
             display: inline-flex;
@@ -292,8 +325,8 @@
         
         .main-profile-img {
             width: 100%;
-            max-width: 500px;
-            height: 500px;
+            max-width: 300px;
+            height: 300px;
             object-fit: cover;
             border-radius: 50%;
             box-shadow: 0 20px 40px rgba(2, 1, 1, 0.4);
@@ -310,7 +343,7 @@
             letter-spacing: 3px;
             text-transform: uppercase;
             margin-bottom: 20px;
-            color: #6a38c0;
+            color: #000000;
         }
         
         .intro-text {
@@ -345,7 +378,7 @@
             left: 0;
             width: 60px;
             height: 2px;
-            background-color: #6a38c0;
+            background-color: #ff0202;
         }
         
         .awards-list {
@@ -384,20 +417,20 @@
         
         .contact-content {
             display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 50px;
+            grid-template-columns: 1fr 0.5fr;
+            gap: 0px;
         }
         
         .contact-info {
             display: flex;
             flex-direction: column;
-            gap: 25px;
+            gap: 30px;
         }
         
         .contact-item {
             display: flex;
             align-items: center;
-            gap: 15px;
+            gap: 30px;
         }
         
         .contact-icon {
@@ -508,19 +541,76 @@
             }
         
         }
+
+        @media (max-width: 768px) {
+            .nav-toggle {
+                display: block;
+            }
+            
+            nav ul {
+                position: fixed;
+                top: 70px;
+                left: -100%;
+                width: 100%;
+                height: calc(100vh - 70px);
+                background-color: white;
+                flex-direction: column;
+                align-items: center;
+                justify-content: flex-start;
+                padding-top: 40px;
+                transition: left 0.3s ease;
+                gap: 20px;
+            }
+            
+            nav ul.active {
+                left: 0;
+            }
+            
+            .dropdown-content {
+                position: static;
+                opacity: 1;
+                visibility: visible;
+                transform: none;
+                box-shadow: none;
+                background: transparent;
+                display: none;
+                padding-left: 20px;
+            }
+            
+            .dropdown.active .dropdown-content {
+                display: block;
+            }
+            
+            .dropdown-toggle::after {
+                content: '\f107';
+            }
+            
+            .dropdown.active .dropdown-toggle::after {
+                content: '\f106';
+            }
+        }
     </style>
 </head>
 <body>
     <!-- Header with transparent background -->
     <header id="header">
         <div class="container header-content">
-            <a href="#" class="logo">Xiaoying<span>Qu</span></a>
+            <a href="#" class="logo">Xiaoying Qu</a>
             <button class="nav-toggle" id="navToggle">
                 <i class="fas fa-bars"></i>
             </button>
             <nav>
                 <ul id="navMenu">
-                    <li><a href="#portfolio">Work</a></li>
+
+                    <li class="dropdown">
+                        <a href="#portfolio" class="dropdown-toggle">Work</a>
+                        <div class="dropdown-content">
+                            <a href="#directing">Directing</a>
+                            <a href="#cinematography">Cinematography</a>
+                            <a href="#commercials">Commercials</a>
+                            <a href="#personal">Personal Projects</a>
+                        </div>
+                    </li>
                     <li><a href="#about">About</a></li>
                     <li><a href="#contact">Contact</a></li>
                 </ul>
@@ -542,6 +632,17 @@
             <a href="every-breath-you-take.html" class="portfolio-item-link"
             target="_blank"></a>
         </div>
+
+        <!-- Portfolio Item 3 -->
+        <div class="portfolio-item" style="background: url('images/Turn/still_1.png') center/cover no-repeat;">
+            <a href="turn.html" class="portfolio-item-link"
+            target="_blank"></a>
+        </div>
+
+        <!-- Portfolio Item 4 -->
+        <div class="portfolio-item" style="background: url('images/Turn/still_1.png') center/cover no-repeat;">
+            <a href="turn.html" class="portfolio-item-link"
+            target="_blank"></a>
     </section>
 
     <!-- About Section -->
@@ -552,7 +653,7 @@
                     <h2 class="name-title">Xiaoying Qu</h2>
                     
                         <p class="intro-text">
-                            Xiaoying Qu is a Director and Cinematographer whose journey began in the Indonesian jungle—where WiFi was fast enough to download an episode of <span>The Twilight Zone</span> in under 25 hours. With a grandfather who overthrew governments and a mother who was kidnapped along the way, Bamba was tired to tell stories that turn a simple plan into a limited journey.
+                            Xiaoying Qu is a Director and Designer whose journey began in the Indonesian jungle—where WiFi was fast enough to download an episode of <span>The Twilight Zone</span> in under 25 hours. With a grandfather who overthrew governments and a mother who was kidnapped along the way, Bamba was tired to tell stories that turn a simple plan into a limited journey.
                         </p>
                     
                         <p class="intro-text">
@@ -579,39 +680,20 @@
 
     <!-- Contact & Footer -->
     <footer>
-        <div class="container">
+        <div class="container" id="contact">
             <div class="footer-content">
-                <div class="footer-about">
-                    <div class="footer-logo">Xiaoying Qu</div>
-                    <p>Creating digital experiences that blend design and technology.</p>
-                    <div class="social-links">
-                        <a href="#" class="social-link"><i class="fab fa-dribbble"></i></a>
-                        <a href="#" class="social-link"><i class="fab fa-behance"></i></a>
-                        <a href="#" class="social-link"><i class="fab fa-github"></i></a>
-                        <a href="#" class="social-link"><i class="fab fa-linkedin-in"></i></a>
-                    </div>
-                </div>
                 <div class="footer-links">
                     <h3>Contact Me</h3>
-                    <p>Get in touch to discuss your project or just say hello.</p>
+                    <p>Let's create something beautiful together or just say hello!</p>
                     <div class="contact-content">
                         <div class="contact-info">
-                            <div class="contact-item">
-                                <div class="contact-icon">
-                                    <i class="fas fa-map-marker-alt"></i>
-                                </div>
-                                <div>
-                                    <h3>Location</h3>
-                                    <p>Based in Los Angeles, CA</p>
-                                </div>
-                            </div>
                             <div class="contact-item">
                                 <div class="contact-icon">
                                     <i class="fas fa-phone"></i>
                                 </div>
                                 <div>
                                     <h3>Phone</h3>
-                                    <p>+1 (555) 123-4567</p>
+                                    <p>+1 (612) 581-7633</p>
                                 </div>
                             </div>
                             <div class="contact-item">
@@ -620,7 +702,7 @@
                                 </div>
                                 <div>
                                     <h3>Email</h3>
-                                    <p>hello@yourname.com</p>
+                                    <p>xxiaoyingqu@gmail.com</p>
                                 </div>
                             </div>
                         </div>
