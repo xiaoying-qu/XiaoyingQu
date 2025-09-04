@@ -11,7 +11,7 @@
             margin: 0;
             padding: 0;
             box-sizing: border-box;
-            font-family: 'Roboto', 'Helvetica Neue', sans-serif;
+            font-family: 'Roboto', 'Open Sans', sans-serif;
         }
         
         :root {
@@ -173,80 +173,6 @@
         header.scrolled .nav-toggle {
             color: var(--primary);
         }
-        
-        /* Portfolio Section - First thing visible */
-        .portfolio {
-            padding-top: 0;
-        }
-        
-        .portfolio-item {
-            height: 100vh;
-            display: flex;
-            align-items: center;
-            position: relative;
-            overflow: hidden;
-            cursor: pointer; /* make the whole section clickable */
-        }
-        .portfolio-item-link{
-          display: block;
-          width: 100%;
-          height: 100%;
-          position: absolute;
-          top: 0;
-          left: 0;
-          z-index: 5;
-        }
-        
-        .portfolio-item:first-child {
-            padding-top: 0;
-        }
-        
-        .portfolio-content {
-            width: 100%;
-            display: flex;
-            flex-direction: column;
-            gap: 30px;
-        }
-        
-        .portfolio-image {
-            position: relative;
-            border-radius: 10px;
-            overflow: hidden;
-            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.15);
-            width: 100%;
-            max-width: 100%;
-            margin: 0 auto;
-            padding: 0 20px;
-        }
-        
-        .portfolio-image img {
-            width: 100%;
-            height: auto;
-            object-fit: cover;
-            transition: transform 0.5s ease;
-        }
-        
-        .portfolio-item:hover .portfolio-image img {
-            transform: scale(1.03);
-        }
-        
-        .portfolio-info {
-            padding: 0 40px;
-            max-width: 1000px;
-            margin: 0 auto;
-            color: white;
-            text-shadow: 0 2px 4px rgba(0,0,0,0.5);
-        }
-        
-        .portfolio-category {
-            color: var(--accent);
-            font-weight: 600;
-            text-transform: uppercase;
-            letter-spacing: 1px;
-            margin-bottom: 15px;
-            display: block;
-        }
-        
         #directing {
             background-color: #f9f9f9;
         }
@@ -259,24 +185,19 @@
             background-color: #e9e9e9;
         }
         
-        
-        .portfolio-link {
-            display: inline-flex;
-            align-items: center;
-            gap: 10px;
-            color: white;
-            font-weight: 600;
-            background-color: var(--accent);
-            padding: 12px 30px;
-            border-radius: 30px;
+        /* Portfolio Section - First thing visible */
+        .portfolio {
+            padding-top: 0;
         }
-        
-        .portfolio-link i {
-            transition: transform 0.3s ease;
-        }
-        
-        .portfolio-link:hover i {
-            transform: translateX(5px);
+
+        .portfolio-item-link{
+          display: block;
+          width: 100%;
+          height: 100%;
+          position: absolute;
+          top: 0;
+          left: 0;
+          z-index: 5;
         }
         
         /* Background overlay for text readability */
@@ -378,7 +299,7 @@
             left: 0;
             width: 60px;
             height: 2px;
-            background-color: #ff0202;
+            background-color: #6a38c0;
         }
         
         .awards-list {
@@ -436,7 +357,7 @@
         .contact-icon {
             width: 50px;
             height: 50px;
-            background-color: white;
+            background-color: #6a38c0;
             border-radius: 50%;
             display: flex;
             align-items: center;
@@ -589,6 +510,113 @@
                 content: '\f106';
             }
         }
+        .grid {
+            display: grid;
+            
+            gap: 0px;
+        }
+        
+        .block {
+            background: rgba(0, 0, 0, 0.4);
+            border-radius: 0px;
+            padding: 30px;
+            height: 60vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            transition: all 0.4s ease;
+            position: relative;
+            overflow: hidden;
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+            cursor: pointer;
+        }
+        
+        .block-content {
+            position: relative;
+            z-index: 2;
+            text-align: center;
+            color: white;
+            transition: all 0.4s ease;
+        }
+        
+        .block-bg {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            transition: filter 0.4s ease;
+            z-index: 1;
+        }
+        
+        .block:hover .block-bg {
+            filter: blur(5px);
+        }
+        
+        .view-text {
+            position: absolute;
+            bottom: -30px;
+            left: 0;
+            width: 100%;
+            text-align: center;
+            font-weight: lighter;
+            font-size: 1.2rem;
+            opacity: 0;
+            transition: all 0.3s ease;
+            color: white;
+            z-index: 3;
+        }
+        
+        .block:hover .view-text {
+            bottom: 125px;
+            opacity: 1;
+        }
+        
+        .block-title {
+            font-size: 1.8rem;
+            margin-bottom: 15px;
+        }
+        
+        .block-desc {
+            font-size: 1.1rem;
+            line-height: 1.6;
+            max-width: 80%;
+        }
+        
+        .block:nth-child(1) .block-bg {
+            background: url('images/Capsule/still_1.png') center/cover;
+        }
+        
+        .block:nth-child(2) .block-bg {
+            background: url('images/Every_breath_you_take/cover.png') center/cover;
+        }
+        
+        .block:nth-child(3) .block-bg {
+            background: url('images/Turn/still_1.png') center/cover;
+        }
+        .footer {
+            text-align: center;
+            margin-top: 60px;
+            opacity: 0.8;
+            font-size: 0.9rem;
+        }
+        
+        @media (max-width: 768px) {
+            .grid {
+                grid-template-columns: 1fr;
+            }
+            
+            h1 {
+                font-size: 2.5rem;
+            }
+        }
+
+
+
+
+
+
     </style>
 </head>
 <body>
@@ -621,32 +649,54 @@
     <!-- Portfolio Section -->
     <section class="portfolio" id="portfolio">
         <!-- Portfolio Item 1 - Opens in new tab -->
-        <div class="portfolio-item" style="background: url('images/Capsule/still_1.png') center/cover no-repeat;">
-            <a href="projects/capsule.html" class="portfolio-item-link"
+        <div class="grid">
+            <div class="block">
+                <a href="projects/capsule.html" class="portfolio-item-link"
             target="_blank"></a>
-        
+                <div class="block-bg"></div>
+                <div class="block-content">
+                    <h3 class="block-title"></h3>
+                    <p class="block-desc"></p>
+                </div>
+                <div class="view-text">
+                    <h3>Capsule - Short Film</h3>
+                    <p>View Details → </p>
+                </div>
+            </div>
+        <!-- Portfolio Item 2 -->   
+            <div class="block">
+                <a href="projects/every-breath-you-take.html" class="portfolio-item-link"
+            target="_blank"></a>
+                <div class="block-bg"></div>
+                <div class="block-content">
+                    <h3 class="block-title"></h3>
+                    <p class="block-desc"></p>
+                </div>
+                <div class="view-text">
+                    <h3>Every Breath You Take - Short Film</h3>
+                    <p>View Details → </p>
+                </div>
+            </div>
+           
+            <!-- Portfolio Item 3 -->
+            <div class="block">
+                <a href="projects/turn.html" class="portfolio-item-link"
+            target="_blank"></a>
+                <div class="block-bg"></div>
+                <div class="block-content">
+                    <h3 class="block-title"></h3>
+                    <p class="block-desc"></p>
+                </div>
+                <div class="view-text">
+                    <h3>Turn - Short Film</h3>
+                    <p>View Details → </p>
+                </div>
+            </div>
         </div>
-        
-        <!-- Portfolio Item 2 -->
-        <div class="portfolio-item" style="background: url('images/Every_breath_you_take/cover.png') center/cover no-repeat;">
-            <a href="every-breath-you-take.html" class="portfolio-item-link"
-            target="_blank"></a>
-        </div>
-
-        <!-- Portfolio Item 3 -->
-        <div class="portfolio-item" style="background: url('images/Turn/still_1.png') center/cover no-repeat;">
-            <a href="turn.html" class="portfolio-item-link"
-            target="_blank"></a>
-        </div>
-
-        <!-- Portfolio Item 4 -->
-        <div class="portfolio-item" style="background: url('images/Turn/still_1.png') center/cover no-repeat;">
-            <a href="turn.html" class="portfolio-item-link"
-            target="_blank"></a>
     </section>
 
     <!-- About Section -->
-     <section class="about" id="about">
+    <section class="about" id="about">
         <div class="container">
             <div class="about-content">
                 <div class="about-text">
@@ -680,8 +730,6 @@
                 
         </div>                
      </section>          
-       
-
     <!-- Contact & Footer -->
     <footer>
         <div class="container" id="contact">
@@ -757,5 +805,8 @@
             });
         });
     </script>
+     
+
+</div>
 </body>
 </html>
