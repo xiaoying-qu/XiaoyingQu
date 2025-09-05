@@ -10,7 +10,7 @@
             margin: 0;
             padding: 0;
             box-sizing: border-box;
-            font-family: 'Inter', 'Helvetica Neue', sans-serif;
+            font-family: 'Roboto', 'Helvetica Neue', sans-serif;
         }
         
         body {
@@ -148,32 +148,6 @@
             font-size: 0.9rem;
         }
         
-        /* Responsive Design */
-        @media (max-width: 768px) {
-            .project-title {
-                font-size: 2.5rem;
-                letter-spacing: 4px;
-            }
-            
-            .director {
-                font-size: 1rem;
-            }
-            
-            .photo-grid {
-                grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
-                gap: 15px;
-            }
-        }
-        
-        @media (max-width: 480px) {
-            .project-title {
-                font-size: 2rem;
-            }
-            
-            .photo-grid {
-                grid-template-columns: 1fr;
-            }
-        }
     </style>
 </head>
 <body>
@@ -181,7 +155,7 @@
     <header>
         <div class="container">
             <h1 class="project-title">CAPSULE</h1>
-            <p class="director">DIRECTED BY XIAOYING QU</p>
+            <p class="director">Written & Directed by Xiaoying Qu</p>
         </div>
     </header>
 
@@ -196,71 +170,12 @@
         </div>
     </section>
 
-    <!-- Photo Gallery Section -->
-    <section class="gallery-section">
-        <div class="container">
-            <div class="photo-grid">
-                <!-- Photo 1 -->
-                <div class="photo-item">
-                    <img src=""
-                </div>
-                <!-- Photo 1 -->
-                <div class="photo-item">
-                    <img src="../images/Capsule/Capsule_cover.jpg" alt="Production Still 1">
-        
-                </div>
-
-                <!-- Photo 2 -->
-                <div class="photo-item">
-                    <img src="../images/Capsule/still_2.png" alt="Production Still 2">
-                </div>
-                
-                <!-- Photo 3 -->
-                <div class="photo-item">
-                    <img src="../images/Capsule/still_3.png" alt="Production Still 3">
-                </div>
-                
-                <!-- Photo 4 -->
-                <div class="photo-item">
-                    <img src="../images/Capsule/still_4.png" alt="Production Still 4">
-                </div>
-                
-                <!-- Photo 5 -->
-                <div class="photo-item">
-                    <img src="../images/Capsule/still_5.png" alt="Production Still 5">
-                </div>
-                
-                <!-- Photo 6 -->
-                <div class="photo-item">
-                    <img src="../images/Capsule/still_6.png" alt="Production Still 6">
-                </div>
-            </div>
-        </div>
-    </section>
-
     <!-- Footer -->
     <footer>
         <div class="container">
-            <p>&copy; 2023 Xiaoying Qu. ALL RIGHTS RESERVED.</p>
+            <p>&copy; 2025 Xiaoying Qu. ALL RIGHTS RESERVED.</p>
         </div>
     </footer>
 
-    <script>
-        // Simple script to handle image loading
-        document.addEventListener('DOMContentLoaded', function() {
-            const images = document.querySelectorAll('img');
-            
-            images.forEach(img => {
-                // Add loading animation for images
-                img.addEventListener('load', function() {
-                    this.style.opacity = 1;
-                });
-                
-                // Set initial opacity for fade-in effect
-                img.style.opacity = 0;
-                img.style.transition = 'opacity 0.5s ease';
-            });
-        });
-    </script>
 </body>
 </html>
