@@ -176,8 +176,56 @@
             background-color: #f9f9f9;
         }
         
+        /* Basic layout for the photo grid */
         #photography {
-            background-color: #f0f0f0;
+            background-color: #f4f4f4;
+            text-align: center;
+            padding-top: 50px;
+            padding-bottom: 50px;
+        }
+
+        .photo-grid {
+            display: flex;
+            gap: 15px;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+
+        .photo-item {
+            position: relative;
+            width: fit-content;
+            overflow: hidden;
+            border-radius: 10px;
+        }
+
+        .photo-item img {
+            width: 60%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.3s ease-in-out;
+        }
+
+        .photo-item img:hover {
+            cursor: pointer;
+            transform: scale(1.1);
+        }
+
+        /* Dropdown menu styles */
+        .dropdown {
+        position: relative;
+        display: inline-block;
+        }
+
+        .dropdown-content {
+        display: none;
+        position: absolute;
+        background-color: #f9f9f9;
+        min-width: 160px;
+        z-index: 1;
+        }
+
+        .dropdown:hover .dropdown-content {
+        display: block;
         }
         
         
@@ -582,14 +630,18 @@
         }
         
         .block:nth-child(1) .block-bg {
+            background: url('images/letter.png') center/cover;
+        }
+
+        .block:nth-child(2) .block-bg {
             background: url('images/Capsule/still_1.png') center/cover;
         }
         
-        .block:nth-child(2) .block-bg {
+        .block:nth-child(3) .block-bg {
             background: url('images/Every_breath_you_take/cover.png') center/cover;
         }
         
-        .block:nth-child(3) .block-bg {
+        .block:nth-child(4) .block-bg {
             background: url('images/Turn/still_1.png') center/cover;
         }
         .footer {
@@ -629,12 +681,12 @@
 
                     <li class="dropdown">
                         <a href="#portfolio" class="dropdown-toggle">Work</a>
-                        <!-- drop down menu #need to add back in
+                        <!-- drop down menu #need to add back in 
                         <div class="dropdown-content">
                             <a href="#directing">Directing</a>
-                            <a href="#photography">Photography</a>
-                        </div>
-                        -->
+                        <a href="#photography">Photography</a>
+                        </div>-->
+                        
                     </li>
                     <li><a href="#about">About</a></li>
                     <li><a href="#contact">Contact</a></li>
@@ -646,9 +698,9 @@
     <!-- Portfolio Section -->
     <section class="portfolio" id="portfolio">
         <div class="grid">
-        <!-- New portfolio 
+        <!-- New portfolio -->
          <div class="block">
-            <a href="projects/capsule.html" class="portfolio-item-link"
+            <a href="projects/letter.html" class="portfolio-item-link"
             target="_blank"></a>
             <div class="block-bg"></div>
             <div class="block-content">
@@ -656,11 +708,11 @@
                 <p class="block-desc"></p>
             </div>
             <div class="view-text">
-                <h3>Hospitality - Short Film</h3>
+                <h3>Excerpt, Letters to a Young Poet - 16mm Essay Film</h3>
                 <p>- view - </p>
             </div>
          </div>
-       -->
+       
          <!-- Portfolio Item 1 - Opens in new tab -->
         
             <div class="block">
@@ -708,6 +760,25 @@
         </div>
     </section>
 
+     <!-- Photography Section
+     <section id="photography">
+        <h1>Gallery</h1>
+        <div class="photo-grid">
+            <div class="photo-item">
+                <a href =""
+                <img src="images/photography/Roygrow/sea3.png">
+                <div class="view-text">
+                    <h3>Capsule - Short Film</h3>
+                    <p>- view - </p>
+                </div>
+            </div>
+            <div class="photo-item">
+                <img src="images/Capsule/still_1.png">
+            
+            
+        </div>
+    </section> -->
+
     <!-- About Section -->
     <section class="about" id="about">
         <div class="container">
@@ -723,8 +794,7 @@
                     
                         <p class="intro-text">
                             Prior to living in LA, Xiaoying grew up in Qingdao, China. She moved to New Hampshire for high school and 
-                            Minnesota for college where she studied computer science. Today, she splits her time directing and prefercting 
-                            her skills in production design, meeting those stories that tell us what it means to be human.
+                            Minnesota for college where she studied computer science. Today, she splits her time writing and directing, meeting those stories that tell us what it means to be human.
                         </p>
                 </div>    
                     
@@ -742,7 +812,9 @@
                 </div>
                 
         </div>                
-     </section>          
+     </section> 
+    
+
     <!-- Contact & Footer -->
     <footer>
         <div class="container" id="contact">
